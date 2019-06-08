@@ -10,10 +10,17 @@
         <div data-component="wrapper"></div>
         <script src="./node_modules/archieml/archieml.js"></script>
         <script type="text/javascript">
-            const parsed = archieml.load("key: value");
-            console.log({parsed})
+            const body = "colors.red: #f00\ncolors.green: #0f0\ncolors.blue: #00f"
+            const parsed = archieml.load(body);
+            const returnValues = (arrayValues) => {
+                let list = []
+                arrayValues.forEach((element) => {
+                    list.push(element[0] + " - " + element[1])
+                })
+                return list.join(', ')
+            }
             const wrapper = document.querySelector('[data-component=wrapper]')
-            wrapper.innerHTML = `<div>ArchieML Content: ${parsed.key}</div>`; 
+            wrapper.innerHTML = `<div>${Object.keys(parsed)}: ${returnValues(Object.entries(parsed.colors))}</div>`; 
         </script>
     </body>
 </html>
