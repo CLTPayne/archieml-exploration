@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To Watch / Read</title>
+        
+    </head>
+    <body>
+        <div data-component="wrapper"></div>
+        <script src="./node_modules/archieml/archieml.js"></script>
+        <script type="text/javascript">
+            const parsed = archieml.load("key: value");
+            console.log({parsed})
+            const wrapper = document.querySelector('[data-component=wrapper]')
+            wrapper.innerHTML = `<div>ArchieML Content: ${parsed.key}</div>`; 
+        </script>
+    </body>
+</html>
