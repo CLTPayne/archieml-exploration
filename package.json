@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "archieml": "^0.4.2"
+    "archieml": "^0.4.2",
+    "express": "^4.17.1",
+    "googleapis": "^40.0.0",
+    "html-entities": "^1.2.1",
+    "htmlparser2": "^3.10.1"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
