@@ -6,7 +6,7 @@ const { google } = require('googleapis');
 // Load env vars when not in production
 // Vars hould be saved in the host interface for access in prod mode
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 
 // Create an oAuth2 client to authorise the API call
@@ -49,11 +49,11 @@ app.get('/:key', (request, response) => {
 app.param('key', (request, response, next, key) => {
     KEY = key || process.env.KEY;
     next();
-})
+});
 
 // Launch server with express
 const server = app.listen(3000, () => {
     const host = server.address().address;
     const port = server.address().port;
-    console.log(`App is listening at http://${host}:${port}`);
-})
+    console.log(`App is listening at http://localhost:${port}`);
+});
